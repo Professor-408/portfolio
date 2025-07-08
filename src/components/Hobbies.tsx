@@ -29,12 +29,23 @@ const Hobbies = () => {
     }
   ];
 
+  const hobbyImages = [
+    '/chess.jpg',
+    '/movie.jpg',
+    '/web_series.jpg',
+    '/blog.jpg'
+  ];
+
+  const [flippedIndex, setFlippedIndex] = React.useState<number | null>(null);
+
   return (
     <section id="hobbies" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Beyond <span className="text-blue-400">Code</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 group relative overflow-hidden">
+            <span className="beyond-gradient group-hover:scale-110 transition-transform duration-500 inline-block">
+              Beyond <span className="beyond-gradient-text">Code</span>
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Interests and activities that fuel creativity and provide balance
@@ -45,21 +56,37 @@ const Hobbies = () => {
           {hobbies.map((hobby, index) => (
             <div
               key={index}
-              className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-900/70 transition-all duration-300 group hover:scale-105 text-center"
+              className={`flip-card-3d${flippedIndex === index ? ' flipped' : ''}`}
+              onMouseEnter={() => setFlippedIndex(index)}
+              onMouseLeave={() => setFlippedIndex(null)}
+              onTouchStart={() => setFlippedIndex(flippedIndex === index ? null : index)}
+              style={{ height: '16rem' }}
             >
-              <div className={`mx-auto mb-4 p-4 rounded-2xl bg-gradient-to-r ${hobby.color} bg-opacity-20 w-fit`}>
-                <div className="text-white">
-                  {hobby.icon}
+              <div className="flip-card-inner w-full h-full">
+                {/* Front Side */}
+                <div className="flip-card-front bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                  <div className={`mx-auto mb-4 p-4 rounded-2xl bg-gradient-to-r ${hobby.color} bg-opacity-20 w-fit`}>
+                    <div className="text-white">
+                      {hobby.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    {hobby.name}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {hobby.description}
+                  </p>
+                </div>
+                {/* Back Side */}
+                <div className="flip-card-back flex items-center justify-center">
+                  <img
+                    src={hobbyImages[index]}
+                    alt={hobby.name}
+                    className="object-cover w-full h-full"
+                    style={{ borderRadius: '1rem' }}
+                  />
                 </div>
               </div>
-              
-              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {hobby.name}
-              </h3>
-              
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {hobby.description}
-              </p>
             </div>
           ))}
         </div>

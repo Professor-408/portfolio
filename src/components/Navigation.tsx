@@ -4,7 +4,6 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,24 +53,10 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 text-gray-300 hover:text-white transition-colors duration-300"
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
           </div>
           
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 text-gray-300 hover:text-white transition-colors duration-300"
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white transition-colors duration-300"

@@ -35,8 +35,10 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-slate-900">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Featured <span className="text-blue-400">Projects</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 group relative overflow-hidden">
+            <span className="beyond-gradient group-hover:scale-110 transition-transform duration-500 inline-block">
+              Featured <span className="beyond-gradient-text">Project</span>
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Real-world applications showcasing DevOps, Machine Learning, and Full-Stack development expertise
@@ -47,7 +49,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/70 transition-all duration-300 group hover:scale-105"
+              className="bg-slate-800/50 backdrop-blur-sm border border-blue-200/40 shadow-sm rounded-2xl p-8 hover:bg-slate-800/70 transition-all duration-300 group hover:scale-105"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} bg-opacity-20`}>

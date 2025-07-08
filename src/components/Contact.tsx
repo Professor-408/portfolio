@@ -5,7 +5,7 @@ import emailjs from 'emailjs-com';
 const Contact = () => {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.currentTarget, 'YOUR_USER_ID')
+    emailjs.sendForm('service_03dm4tg', 'template_vjekcrl', e.currentTarget, 'mVVypmYushus9YDRl')
       .then((result) => {
         alert('Message sent successfully!');
       }, (error) => {
@@ -18,8 +18,10 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-slate-900">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Get In <span className="text-blue-400">Touch</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 group relative overflow-hidden">
+            <span className="beyond-gradient group-hover:scale-110 transition-transform duration-500 inline-block">
+              Get In <span className="beyond-gradient-text">Touch</span>
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to collaborate on innovative projects or discuss opportunities
@@ -29,7 +31,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-200/40 shadow-sm rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               
               <div className="space-y-4">
@@ -79,7 +81,7 @@ const Contact = () => {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-200/40 shadow-sm rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
             
             <form className="space-y-6" onSubmit={sendEmail}>
@@ -88,16 +90,20 @@ const Contact = () => {
                   <label className="block text-gray-300 text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
+                    name="name"
                     className="w-full bg-slate-700/50 border border-slate-600/50 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="Your Name"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full bg-slate-700/50 border border-slate-600/50 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                     placeholder="your@email.com"
+                    required
                   />
                 </div>
               </div>
@@ -106,8 +112,10 @@ const Contact = () => {
                 <label className="block text-gray-300 text-sm font-medium mb-2">Subject</label>
                 <input
                   type="text"
+                  name="subject"
                   className="w-full bg-slate-700/50 border border-slate-600/50 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                   placeholder="Message Subject"
+                  required
                 />
               </div>
               
@@ -115,8 +123,10 @@ const Contact = () => {
                 <label className="block text-gray-300 text-sm font-medium mb-2">Message</label>
                 <textarea
                   rows={6}
+                  name="message"
                   className="w-full bg-slate-700/50 border border-slate-600/50 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Your message here..."
+                  required
                 ></textarea>
               </div>
               
