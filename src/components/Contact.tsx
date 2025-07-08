@@ -3,15 +3,16 @@ import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    emailjs.sendForm('service_03dm4tg', 'template_vjekcrl', e.currentTarget, 'mVVypmYushus9YDRl')
-      .then((result) => {
-        alert('Message sent successfully!');
-      }, (error) => {
-        alert('Failed to send message. Please try again later.');
-      });
-    e.currentTarget.reset();
+    try {
+      await emailjs.sendForm('service_03dm4tg', 'template_vjekcrl', e.currentTarget, 'mVVypmYushus9YDRl');
+      alert('Message sent successfully!');
+      e.currentTarget.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Failed to send message. Please try again later.');
+    }
   };
 
   return (
