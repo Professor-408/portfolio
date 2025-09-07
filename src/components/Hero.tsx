@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
-import dp from '../dp.jpg';
+import dp from '../dp.png';
 
 const Hero = () => {
   const [flipped, setFlipped] = useState(false);

@@ -1,20 +1,19 @@
-import React from 'react';
-import { ExternalLink, Github, Server, Code, Database } from 'lucide-react';
+import { Github, Server, Zap } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'House Price Prediction Web App',
-      description: 'A comprehensive machine learning web application that predicts house prices using Linear Regression algorithms. Features a complete MLOps pipeline with automated deployment.',
-      techStack: ['Python', 'Flask', 'Linear Regression', 'AWS EC2', 'DuckDNS', 'Nginx'],
+      title: 'Python Automation Toolkit (Streamlit Interactive Project)',
+      description: 'Created an all-in-one interactive application using Streamlit that serves as a productivity toolkit. Executed Linux and Docker commands directly from the web interface with integrated automation features.',
+      techStack: ['Python', 'Streamlit', 'Pywhatkit', 'Instagrapi', 'Linux', 'Docker'],
       features: [
-        'ML model using Linear Regression',
-        'Flask API backend',
-        'Deployed on AWS EC2 using DuckDNS',
-        'Nginx as reverse proxy'
+        'Executed Linux and Docker commands from web interface',
+        'Integrated Pywhatkit for automated tasks (WhatsApp, YouTube)',
+        'Used Instagrapi for Instagram automation',
+        'Menu-driven dashboard for easy navigation'
       ],
-      icon: <Database className="w-6 h-6" />,
-      color: 'from-blue-500 to-blue-600'
+      icon: <Zap className="w-6 h-6" />,
+      color: 'from-purple-500 to-purple-600'
     },
     {
       title: 'CI/CD Automation Pipeline',
@@ -93,14 +92,24 @@ const Projects = () => {
               </div>
               
               <div className="flex gap-3">
-                <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105">
-                  <Github className="w-4 h-4" />
-                  View Code
-                </button>
-                <button className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105">
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
-                </button>
+                {index === 0 && (
+                  <button
+                    onClick={() => window.open("https://github.com/Professor-408/streamlit-automation-project", "_blank")}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                  >
+                    <Github className="w-4 h-4" />
+                    View Code
+                  </button>
+                )}
+                {index === 1 && (
+                  <button
+                    onClick={() => window.open("https://github.com/Professor-408/flask-app", "_blank")}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                  >
+                    <Github className="w-4 h-4" />
+                    View Code
+                  </button>
+                )}
               </div>
             </div>
           ))}
